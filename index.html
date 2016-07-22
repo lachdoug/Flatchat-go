@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Flatchat Client</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/font-awesome-4.6.3/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/stylesheets/application.css">
+  <script type="text/javascript" src="assets/javascripts/vendor/javascript_cookies.js"></script>
+  <script type="text/javascript" src="assets/javascripts/vendor/jquery_form.js"></script>
+  <script type="text/javascript" src="assets/javascripts/vendor/jquery_time_ago.js"></script>
+  <script type="text/javascript" src="assets/javascripts/ajax_setup.js"></script>
+  <script type="text/javascript" src="assets/javascripts/events.js"></script>
+  <script type="text/javascript" src="assets/javascripts/load_room.js"></script>
+  <script type="text/javascript" src="assets/javascripts/load_rooms_list.js"></script>
+  <script type="text/javascript" src="assets/javascripts/time_ago.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-md-3 col-lg-3">
+        <h4>
+          <span id="server_connection_status" style="color:#F90">
+            <i class="fa fa-wifi"></i>
+          </span>
+          <span id='flatchat_title'>Flatchat</span>
+        </h4>
+        <div id="rooms" style="display:none;">
+          <form id="new_room_form" action="http://localhost:3001/rooms.json" method="post">
+            <input name="room[name]" id="input_room_name" placeholder="New room" type="text" class="form-control" autocomplete="off">
+          </form>
+          <p><div id="rooms_list"></div></p>
+        </div>
+      </div>
+      <div id="room" class="col-sm-8 col-md-9 col-lg-9" style="display:none;">
+        <h4 id="room_title"></h4>
+        <form id="new_message_form" action="http://localhost:3001/messages.json" method="post">
+          <input name="message[room_id]" id=input_message_room_id type="hidden">
+          <input name="message[body]" id="input_message_body" placeholder="New message" type="text" class="form-control" autocomplete="off">
+        </form>
+        <p><div id="room_messages"></div></p>
+      </div>
+      <div id="loading" class="col-sm-12 text-center">
+        <i class="fa fa-spinner fa-spin"></i>
+      </div>
+    </div>
+  </div>
+
+<div id="stream"></div>
+
+</body>
+</html>
