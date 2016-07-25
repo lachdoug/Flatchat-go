@@ -2,7 +2,7 @@ $( document ).ready(function() {
 
   $("#rooms_list").on("click", "a.room_link", function(event){
     var roomId = $(this).data("roomid");
-    $.getJSON(("http://localhost:3001/rooms/" + roomId + ".json"), function(room) {
+    $.getJSON((serverUrl + "/rooms/" + roomId + ".json"), function(room) {
       $("#room").hide();
       $("#room_messages").empty();
       $("#room_title").html(room.name + ' room');

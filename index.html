@@ -36,7 +36,7 @@
           <span id='flatchat_title'>Flatchat</span>
         </h4>
         <div id="rooms" style="display:none;">
-          <form id="new_room_form" action="http://localhost:3001/rooms.json" method="post">
+          <form id="new_room_form" name="new_room_form" method="post">
             <input name="room[name]" id="input_room_name" placeholder="New room" type="text" class="form-control" autocomplete="off">
           </form>
           <p><div id="rooms_list"></div></p>
@@ -44,7 +44,7 @@
       </div>
       <div id="room" class="col-sm-8 col-md-9 col-lg-9" style="display:none;">
         <h4 id="room_title"></h4>
-        <form id="new_message_form" action="http://localhost:3001/messages.json" method="post">
+        <form id="new_message_form" name="new_message_form" method="post">
           <input name="message[room_id]" id=input_message_room_id type="hidden">
           <input name="message[body]" id="input_message_body" placeholder="New message" type="text" class="form-control" autocomplete="off">
         </form>

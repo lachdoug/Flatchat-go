@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-  webSocketConnection = new WebSocket("ws://localhost:3001/cable");
+  webSocketConnection = new WebSocket(serverWebSocketUrl);
 
   webSocketConnection.onopen = function(serverEvent) {
     webSocketConnection.send(

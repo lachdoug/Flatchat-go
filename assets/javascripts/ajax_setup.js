@@ -11,9 +11,17 @@ $(document).ready(function() {
     headers : { 'Authorization' : 'Token ' + apiKey }
   });
 
+  setFormsServerUrl();
+
   bindAjaxForm();
 
 });
+
+function setFormsServerUrl() {
+  alert(serverUrl);
+  document.new_room_form.action = ( serverUrl + "/rooms.json" );
+  document.new_message_form.action = ( serverUrl + "/messages.json" );
+}
 
 function bindAjaxForm() {
   $('form').ajaxForm({
