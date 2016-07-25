@@ -1,5 +1,5 @@
 function loadRoomsList() {
-  $.getJSON("http://localhost:3001/rooms.json", function(rooms) {
+  $.getJSON(serverUrl + "/rooms.json", function(rooms) {
     $.each(rooms, function(index, room){
       $('#rooms_list').prepend(roomHtml(room));
     });

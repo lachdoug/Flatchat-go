@@ -7,10 +7,8 @@ $(document).ready(function() {
     }
   });
 
-  Cookies.set("API_TOKEN", 'zJlb4YhlysROap2bhcZlawtt')
-
   $.ajaxSetup({
-    headers : { 'Authorization' : 'Token ' + Cookies.get("API_TOKEN") }
+    headers : { 'Authorization' : 'Token ' + apiKey }
   });
 
   bindAjaxForm();
@@ -22,11 +20,18 @@ function bindAjaxForm() {
     error: function(html, status, xhr, this_form) {
       var errors = JSON.parse(html.responseText).errors;
       this_form.append(errorsHtml(errors));
-      // alert(errorsHtml(errors));
     }
   });
 };
 
 function errorsHtml(errors) {
-  return '<p><div class="alert alert-warning alert-dismissible"><button class="close" data-dismiss="alert"><span>&times;</span></button>' + errors.join('<br>') + '</div></p>'
+  return ' \
+  <p> \
+    <div class="alert alert-warning alert-dismissible"> \
+      <button class="close" data-dismiss="alert"> \
+        <span>&times;</span> \
+      </button>' +
+      errors.join('<br>') +
+    '</div> \
+  </p>'
 };

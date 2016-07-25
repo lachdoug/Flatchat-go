@@ -16,7 +16,6 @@ $( document ).ready(function() {
   };
 
   webSocketConnection.onmessage = function(serverEvent) {
-    // $('body').append('<p>' + serverEvent.data + '</p>');
     $('#server_connection_status').css("color", "#3C3");
     processEvent(serverEvent);
   };
